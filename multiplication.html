@@ -1,0 +1,143 @@
+	<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Math Difficulty Game</title>
+
+
+<link rel="stylesheet" href="css/style.css">
+<style>
+body {
+  background-color: lightgreen;
+}
+p {
+  color:black;
+}
+</style>
+</head>
+<body>
+
+<h1>Math Quiz</h1>
+<h2> This program will test your abilites to solve math equations with muliplcation with bigger and bigger numbers </h2>
+<h3>NO CALCULATOR ALLOWED!!!!</h3>
+<img style="height:100px" src="https://pngimg.com/uploads/arrow_bow/arrow_bow_PNG21.png">
+<h2> OH NO, archers start to shoot at you, you must count how many arrows they are firing at you in order to dodge them all, and they are getting reinforcement at a rapid rate! </h2>
+<p id="difficulty"></p> <!-- shows the difficulty level -->
+
+<p id="question"></p> <!-- question -->
+
+<br>
+
+<input type="text" id="userAnswer"> <!-- user text input -->
+
+<br>
+
+<button onclick="difficultyFunction()"> Check Anwser</button> <!-- button -->
+<p id="Result"></p> <!-- hidden at first (will show after an answer) -->
+
+
+<h1> <a href="https://temmiethegod.neocities.org/ABCCodeJam/TitleScreen">Go Back</a> </h1>
+
+
+<script>
+let difficultyValue = 0; //difficulty value
+let n1 = Math.floor(Math.random()*10+1); //establish the random values
+let n2 = Math.floor(Math.random()*10+1);
+document.getElementById("difficulty").innerHTML = "Difficulty: " + difficultyValue; //show the difficulty value on screen
+document.getElementById("question").innerHTML = n1 + " * " + n2; //set the textboxes to the variables created above
+let n3 = Math.floor(Math.random()*10+1);
+let n4 = Math.floor(Math.random()*10+1);
+let finalAnswer;
+//finalAnswer = n1 + n2; //find the right answer
+//checkAndMove(0);
+
+function difficultyFunction() {
+  
+  if (difficultyValue == 0) {
+    finalAnswer = n1 * n2; //find the right answer
+    checkAndMove();
+  } else if (difficultyValue == 1) {
+    finalAnswer = n1 * n2; //find the right answer
+    checkAndMove();
+  } else if (difficultyValue == 2) {
+    finalAnswer = n1 * n2; //find the right answer
+    checkAndMove();
+  } else if (difficultyValue == 3) {
+    finalAnswer = n1 * n2 * n3; //find the right answer
+    checkAndMove();
+  } else if (difficultyValue == 4) {
+    finalAnswer = n1 * n2 * n3; //find the right answer
+    checkAndMove();
+  } else if (difficultyValue == 5) {
+    finalAnswer = Math.pow(n1, n2) * Math.pow(n3, n4); //find the right answer
+    checkAndMove();
+  } else if (difficultyValue == 6) {
+    document.getElementById("question").innerHTML = "You have successfully mastered addition. Try out other challenges!!";
+  }
+}
+
+function checkAndMove(){
+  
+  var user = document.getElementById("userAnswer").value; //get the value the user entered
+  
+  if ( user == finalAnswer ){ //check
+  
+  document.getElementById("Result").innerHTML = "Correct!!!";
+  difficultyValue +=1;
+  document.getElementById("difficulty").innerHTML = "Difficulty: " + difficultyValue;
+  
+  } else {
+    
+  document.getElementById("Result").innerHTML = "Uh oh! Correct Answer: " + finalAnswer + " . Try Again";
+  
+  }
+  
+  if (difficultyValue == 0) {
+    n1 = Math.floor(Math.random()*10+1); //establish the random values
+    n2 = Math.floor(Math.random()*10+1);
+    document.getElementById("question").innerHTML = n1 + " * " + n2; //set the textboxes to the variables created above
+    //finalAnswer = n1 + n2; //find the right answer
+    document.getElementById("userAnswer").value = "";
+  } else if (difficultyValue == 1) {
+    n1 = Math.floor(Math.random()*100+10); //establish the random values
+    n2 = Math.floor(Math.random()*100+10);
+    document.getElementById("question").innerHTML = n1 + " * " + n2; //set the textboxes to the variables created above
+    //finalAnswer = n1 + n2; //find the right answer
+    document.getElementById("userAnswer").value = "";
+  } else if (difficultyValue == 2) {
+    n1 = Math.floor(Math.random()*1000+100); //establish the random values
+    n2 = Math.floor(Math.random()*1000+100);
+    document.getElementById("question").innerHTML = n1 + " * " + n2; //set the textboxes to the variables created
+    //finalAnswer = n1 + n2; //find the right answer
+    document.getElementById("userAnswer").value = "";
+  } else if (difficultyValue == 3) {
+    n1 = Math.floor(Math.random()*10+1); //establish the random values
+    n2 = Math.floor(Math.random()*10+1);
+    n3 = Math.floor(Math.random()*10+1);
+    document.getElementById("question").innerHTML = n1 + " * " + n2 + " * " + n3; //set the textboxes to the variables created above
+    document.getElementById("userAnswer").value = "";
+  } else if (difficultyValue == 4) {
+    n1 = Math.floor(Math.random()*100+10); //establish the random values
+    n2 = Math.floor(Math.random()*100+10);
+    n3 = Math.floor(Math.random()*100+10);
+    document.getElementById("question").innerHTML = n1 + " * " + n2 + " * " + n3; //set the textboxes to the variables created above
+    document.getElementById("userAnswer").value = "";
+  } else if (difficultyValue == 5) {
+    n1 = Math.floor(Math.random()*8+1); //establish the random values
+    n2 = Math.floor(Math.random()*8+1);
+    n3 = Math.floor(Math.random()*8+1);
+    n4 = Math.floor(Math.random()*8+1);
+    document.getElementById("question").innerHTML = "(" + n1 + " ^ " + n2 + ") " +  " * " + " (" + n3 + " ^ " + n4 + ") "; //set the textboxes to the variables created above
+    document.getElementById("userAnswer").value = "";
+  } else if (difficultyValue == 6) {
+    document.getElementById("question").innerHTML = "You have successfully mastered multiplication. Try out other challenges!!";
+    document.getElementById("userAnswer").value = "";
+  }
+
+
+}
+</script>
+
+</body>
+</html>
