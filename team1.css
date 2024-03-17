@@ -1,0 +1,12 @@
+body {
+  background-color: lightgreen;
+}
+p {
+  color:black;
+  margin-left:250px
+}
+
+img {
+  border: 3px solid #000;
+  height:800px
+}
